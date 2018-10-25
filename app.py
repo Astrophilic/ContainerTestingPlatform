@@ -1,6 +1,7 @@
 import docker 
 import compilers
 import os
+import static_testing
 client = docker.from_env()     
 
 
@@ -8,7 +9,7 @@ def build_image():
 
     for i in range(1, len(compilers.compilers)+1):
         dockerFileText = compilers.compilers["1"]
-        dockerFile = open('dfile/Dockerfile', 'w', encoding = 'utf-8')
+        dockerFile = open('dfile/Dockerfile', 'w', encoding = 'utf-8') #Dockerfile for gcc
         dockerFile.write(dockerFileText)
         dockerFile.close()
         client.images.build(path="dfile", tag = "gcc14")
@@ -38,7 +39,9 @@ def main():
         if std == 'std98':
             containerObj = client.containers.run(image="gcc14", 
             command=["/bin/bash", "-c", "cd /tmp; g++ -std=c++98 in.cpp 2> out.txt"], 
-            volumes={srcPath:{'bind': '/tmp', 'mode':'rw'}}, detach=True)
+            volumes={srcPath:{'bind': '/tmp', 'mode':'rw'}}, detach=True, remove=True)
+        static_testing.staticTest(srcPath)
+
 
 
 if __name__=="__main__" : main()

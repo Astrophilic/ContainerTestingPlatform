@@ -1,15 +1,15 @@
 in.cpp: In function 'int main()':
-in.cpp:7:29: error: in C++98 'v' must be initialized by constructor, not by '{...}'
+in.cpp:8:29: error: in C++98 'v' must be initialized by constructor, not by '{...}'
      vector<int> v = {1, 2, 3};
                              ^
-in.cpp:7:29: error: could not convert '{1, 2, 3}' from '<brace-enclosed initializer list>' to 'std::vector<int>'
-in.cpp:8:14: error: 'num' does not name a type
+in.cpp:8:29: error: could not convert '{1, 2, 3}' from '<brace-enclosed initializer list>' to 'std::vector<int>'
+in.cpp:9:14: error: 'num' does not name a type
      for(auto num: v)
               ^
-in.cpp:10:5: error: expected ';' before 'return'
+in.cpp:11:5: error: expected ';' before 'return'
      return 0;
      ^
-in.cpp:10:5: error: expected primary-expression before 'return'
-in.cpp:10:5: error: expected ';' before 'return'
-in.cpp:10:5: error: expected primary-expression before 'return'
-in.cpp:10:5: error: expected ')' before 'return'
+in.cpp:11:5: error: expected primary-expression before 'return'
+in.cpp:11:5: error: expected ';' before 'return'
+in.cpp:11:5: error: expected primary-expression before 'return'
+in.cpp:11:5: error: expected ')' before 'return'
