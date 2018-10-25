@@ -1,2 +1,3 @@
 # ContainerTestingPlatform
-This contains docker files.
+This contains docker files and images.
+
